@@ -10,29 +10,28 @@ using NoticieroApi.Services;
 namespace NoticieroApi.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Autor")]
-    public class AutorController : Controller
+    [Route("api/Categoria")]
+    public class CategoriaController : Controller
     {
-        private readonly AutorService _AutorServicio;
+        private readonly CategoriaService _CategoriaServicio;
 
-        public AutorController(AutorService AutorServicio)
+        public CategoriaController(CategoriaService CategoriaServicio)
         {
-            _AutorServicio = AutorServicio;
+            _CategoriaServicio = CategoriaServicio;
         }
 
-        [Route("VerAutores")]
-        public IActionResult VerAutores()
+        [Route("VerCategorias")]
+        public IActionResult VerCategorias()
         {
-
-            var resultado = _AutorServicio.VerAutor();
+            var resultado = _CategoriaServicio.VerCategoria();
             return Ok(resultado);
         }
 
         [Route("Agregar")]
         [HttpPost]
-        public IActionResult Agregar([FromBody] Autor AutorAgregar)
+        public IActionResult Agregar([FromBody] Categoria CategoriaAgregar)
         {
-            if (_AutorServicio.Agregar(AutorAgregar))
+            if (_CategoriaServicio.Agregar(CategoriaAgregar))
             {
                 return Ok("Agregado");
             }
@@ -44,9 +43,9 @@ namespace NoticieroApi.Controllers
 
         [Route("Editar")]
         [HttpPut]
-        public IActionResult Editar([FromBody] Autor AutorEditar)
+        public IActionResult Editar([FromBody] Categoria CategoriaEditar)
         {
-            if (_AutorServicio.Editar(AutorEditar))
+            if (_CategoriaServicio.Editar(CategoriaEditar))
             {
                 return Ok("Actualizado");
             }
@@ -58,10 +57,10 @@ namespace NoticieroApi.Controllers
 
 
         [HttpGet]
-        [Route("Eliminar/{IdAutor}")]
-        public IActionResult Eliminar(int IdAutor)
+        [Route("Eliminar/{IdCategoria}")]
+        public IActionResult Eliminar(int IdCategoria)
         {
-            if (_AutorServicio.Eliminar(IdAutor))
+            if (_CategoriaServicio.Eliminar(IdCategoria))
             {
                 return Ok("Borrado");
             }
@@ -70,6 +69,5 @@ namespace NoticieroApi.Controllers
                 return BadRequest();
             }
         }
-
     }
 }

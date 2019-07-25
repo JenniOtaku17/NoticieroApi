@@ -36,7 +36,7 @@ namespace NoticieroApi
             services.AddDbContext<NoticieroDbContext>(opciones => opciones.UseSqlServer((@"Data Source=DESKTOP-7VGTREJ\ITLAPROJECTS;Initial Catalog=Noticiero;Integrated Security=True")));
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
