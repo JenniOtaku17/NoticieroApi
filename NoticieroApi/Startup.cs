@@ -4,10 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using NoticieroApi.Persistance;
 
 namespace NoticieroApi
 {
@@ -24,6 +26,8 @@ namespace NoticieroApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.AddDbContext<NoticieroDbContext>(opciones => opciones.UseSqlServer((@"Data Source=DESKTOP-7VGTREJ\ITLAPROJECTS;Initial Catalog=Noticiero;Integrated Security=True")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
