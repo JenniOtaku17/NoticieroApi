@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using NoticieroApi.Persistance;
+using NoticieroApi.Services;
 
 namespace NoticieroApi
 {
@@ -26,11 +27,16 @@ namespace NoticieroApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddTransient<AutorService, AutorService>();
+            services.AddTransient<CategoriaService, CategoriaService>();
+            services.AddTransient<ComentarioService, ComentarioService>();
+            services.AddTransient<NoticiaService, NoticiaService>();
+            services.AddTransient<UsuarioService, UsuarioService>();
 
             services.AddDbContext<NoticieroDbContext>(opciones => opciones.UseSqlServer((@"Data Source=DESKTOP-7VGTREJ\ITLAPROJECTS;Initial Catalog=Noticiero;Integrated Security=True")));
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
