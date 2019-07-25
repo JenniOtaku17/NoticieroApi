@@ -16,7 +16,7 @@ namespace NoticieroApi.Services
             _NoticiaDB = NoticiaDB;
         }
 
-        public List<Noticia> VerListadoTodasLasNoticias()
+        public List<Noticia> VerNoticia()
         {
             var NoticiaBuscada = _NoticiaDB.Noticia.Include(x => x.Autor).Include(x => x.Categoria).OrderByDescending(x => x.IdNoticia).ToList();
             return NoticiaBuscada;
