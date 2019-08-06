@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace NoticieroApiTest
 {
     [TestClass]
-    public class AutorTests
+    public class UnitTests
     {
         private readonly Autor Autor;
         private readonly Categoria Categoria;
