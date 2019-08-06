@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.705
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoticieroApi", "NoticieroApi\NoticieroApi.csproj", "{8CB3C212-B217-408D-961C-A0E78DD9A826}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoticieroApi", "NoticieroApi\NoticieroApi.csproj", "{8CB3C212-B217-408D-961C-A0E78DD9A826}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoticieroApiTest", "NoticieroApiTest\NoticieroApiTest.csproj", "{5FF4E734-8F58-4A1E-B5FA-166B52CAFE4A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{8CB3C212-B217-408D-961C-A0E78DD9A826}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CB3C212-B217-408D-961C-A0E78DD9A826}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8CB3C212-B217-408D-961C-A0E78DD9A826}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FF4E734-8F58-4A1E-B5FA-166B52CAFE4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FF4E734-8F58-4A1E-B5FA-166B52CAFE4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FF4E734-8F58-4A1E-B5FA-166B52CAFE4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FF4E734-8F58-4A1E-B5FA-166B52CAFE4A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
