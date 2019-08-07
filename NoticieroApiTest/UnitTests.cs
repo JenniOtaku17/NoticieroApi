@@ -64,11 +64,26 @@ namespace NoticieroApiTest
 
         [TestMethod]
         public void EditarAutor()
-        {var Autor = new Autor();
+        {
+            var Autor = new Autor();
             var servicio = new AutorService(db);
             var controller = new AutorController(servicio);
             var result = controller.Editar(Autor);
-            Assert.IsNotNull(result);
+            var BadResult = result as BadRequestResult;
+            Assert.IsNotNull(BadResult);
+            Assert.AreEqual(400, BadResult.StatusCode);
+        }
+
+        [TestMethod]
+        public void EliminarAutor()
+        {
+            var Autor = new Autor().IdAutor;
+            var servicio = new AutorService(db);
+            var controller = new AutorController(servicio);
+            var result = controller.Eliminar(Autor);
+            var BadResult = result as BadRequestResult;
+            Assert.IsNotNull(BadResult);
+            Assert.AreEqual(400, BadResult.StatusCode);
         }
 
         //Pruebas a Categoria------------------------------------------------------------------
@@ -88,7 +103,9 @@ namespace NoticieroApiTest
             var servicio = new CategoriaService(db);
             var controller = new CategoriaController(servicio);
             var result = controller.Agregar(Categoria);
-            Assert.IsNotNull(result);
+            var BadResult = result as BadRequestResult;
+            Assert.IsNotNull(BadResult);
+            Assert.AreEqual(400, BadResult.StatusCode);
 
         }
 
@@ -99,7 +116,9 @@ namespace NoticieroApiTest
             var servicio = new CategoriaService(db);
             var controller = new CategoriaController(servicio);
             var result = controller.VerCategorias();
-            Assert.IsNotNull(result);
+            var okResult = result as OkObjectResult;
+            Assert.IsNotNull(okResult);
+            Assert.AreEqual(200, okResult.StatusCode);
 
         }
 
@@ -109,8 +128,22 @@ namespace NoticieroApiTest
             var servicio = new CategoriaService(db);
             var controller = new CategoriaController(servicio);
             var result = controller.Editar(Categoria);
-            Assert.IsNotNull(result);
+            var BadResult = result as BadRequestResult;
+            Assert.IsNotNull(BadResult);
+            Assert.AreEqual(400, BadResult.StatusCode);
 
+        }
+
+        [TestMethod]
+        public void EliminarCategoria()
+        {
+            var Categoria = new Categoria().IdCategoria;
+            var servicio = new CategoriaService(db);
+            var controller = new CategoriaController(servicio);
+            var result = controller.Eliminar(Categoria);
+            var BadResult = result as BadRequestResult;
+            Assert.IsNotNull(BadResult);
+            Assert.AreEqual(400, BadResult.StatusCode);
         }
 
         //Pruebas a Comentario-------------------------------------------------------------------
@@ -130,7 +163,9 @@ namespace NoticieroApiTest
             var servicio = new ComentarioService(db);
             var controller = new ComentarioController(servicio);
             var result = controller.Agregar(Comentario);
-            Assert.IsNotNull(result);
+            var BadResult = result as BadRequestResult;
+            Assert.IsNotNull(BadResult);
+            Assert.AreEqual(400, BadResult.StatusCode);
 
         }
 
@@ -153,8 +188,22 @@ namespace NoticieroApiTest
             var servicio = new ComentarioService(db);
             var controller = new ComentarioController(servicio);
             var result = controller.Editar(Comentario);
-            Assert.IsNotNull(result);
+            var BadResult = result as BadRequestResult;
+            Assert.IsNotNull(BadResult);
+            Assert.AreEqual(400, BadResult.StatusCode);
 
+        }
+
+        [TestMethod]
+        public void EliminarComentario()
+        {
+            var Comentario = new Comentario().IdComentario;
+            var servicio = new ComentarioService(db);
+            var controller = new ComentarioController(servicio);
+            var result = controller.Eliminar(Comentario);
+            var BadResult = result as BadRequestResult;
+            Assert.IsNotNull(BadResult);
+            Assert.AreEqual(400, BadResult.StatusCode);
         }
 
         //Pruebas  a Noticia---------------------------------------------------------------------
@@ -174,7 +223,9 @@ namespace NoticieroApiTest
             var servicio = new NoticiaService(db);
             var controller = new NoticiaController(servicio);
             var result = controller.Agregar(Noticia);
-            Assert.IsNotNull(result);
+            var BadResult = result as BadRequestResult;
+            Assert.IsNotNull(BadResult);
+            Assert.AreEqual(400, BadResult.StatusCode);
 
         }
 
@@ -198,8 +249,22 @@ namespace NoticieroApiTest
             var servicio = new NoticiaService(db);
             var controller = new NoticiaController(servicio);
             var result = controller.Editar(Noticia);
-            Assert.IsNotNull(result);
+            var BadResult = result as BadRequestResult;
+            Assert.IsNotNull(BadResult);
+            Assert.AreEqual(400, BadResult.StatusCode);
 
+        }
+
+        [TestMethod]
+        public void EliminarNoticia()
+        {
+            var Noticia = new Noticia().IdNoticia;
+            var servicio = new NoticiaService(db);
+            var controller = new NoticiaController(servicio);
+            var result = controller.Eliminar(Noticia);
+            var BadResult = result as BadRequestResult;
+            Assert.IsNotNull(BadResult);
+            Assert.AreEqual(400, BadResult.StatusCode);
         }
 
         //Pruebas  a Usuario----------------------------------------------------------------------
@@ -219,7 +284,9 @@ namespace NoticieroApiTest
             var servicio = new UsuarioService(db);
             var controller = new UsuarioController(servicio);
             var result = controller.Agregar(Usuario);
-            Assert.IsNotNull(result);
+            var BadResult = result as BadRequestResult;
+            Assert.IsNotNull(BadResult);
+            Assert.AreEqual(400, BadResult.StatusCode);
 
         }
 
@@ -243,8 +310,22 @@ namespace NoticieroApiTest
             var servicio = new UsuarioService(db);
             var controller = new UsuarioController(servicio);
             var result = controller.Editar(Usuario);
-            Assert.IsNotNull(result);
+            var BadResult = result as BadRequestResult;
+            Assert.IsNotNull(BadResult);
+            Assert.AreEqual(400, BadResult.StatusCode);
 
+        }
+
+        [TestMethod]
+        public void EliminarUsuario()
+        {
+            var Usuario = new Usuario().IdUsuario;
+            var servicio = new UsuarioService(db);
+            var controller = new UsuarioController(servicio);
+            var result = controller.Eliminar(Usuario);
+            var BadResult = result as BadRequestResult;
+            Assert.IsNotNull(BadResult);
+            Assert.AreEqual(400, BadResult.StatusCode);
         }
 
     }
