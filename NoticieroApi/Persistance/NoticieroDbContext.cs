@@ -14,6 +14,15 @@ namespace NoticieroApi.Persistance
 
         }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-7VGTREJ\ITLAPROJECTS;Initial Catalog=Noticiero;Integrated Security=True");
+            }
+            base.OnConfiguring(optionsBuilder);
+        }
+
         public virtual DbSet<Autor> Autor { get; set; }
         public virtual DbSet<Categoria> Categoria { get; set; }
         public virtual DbSet<Comentario> Comentario { get; set; }
