@@ -33,7 +33,7 @@ namespace NoticieroApi
             services.AddTransient<NoticiaService, NoticiaService>();
             services.AddTransient<UsuarioService, UsuarioService>();
 
-            services.AddDbContext<NoticieroDbContext>(opciones => opciones.UseSqlServer((@"Data Source=DESKTOP-7VGTREJ\ITLAPROJECTS;Initial Catalog=Noticiero;Integrated Security=True")));
+            services.AddDbContext<NoticieroDbContext>(opciones => opciones.UseSqlServer((@"data source = jenniferserver.database.windows.net,1433; initial catalog = Noticiero; user id = jenniferuser; password = Itachi-0417")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline
